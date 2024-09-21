@@ -6,24 +6,27 @@ function Home() {
   const [lastName, setLastName] = useState('')
   const [email, setEmail] = useState('')
   const [photo, setPhoto] = useState(null)
+  
   const submitHandler = async (e) => {
     e.preventDefault();
-    // const formData = new FormData();
-    // formData.append("photo", photo)
+    const formData = new FormData();
+    formData.append("photo", photo)
 
-    // await fetch("/api/image", {
+    await fetch("/api/image", {
+      method: "POST", 
+      body: formData
+    })
+
+    // await fetch("/api/create", {
     //   method: "POST", 
-    //   body: formData
+    //   body: JSON.stringify({
+    //     firstName,
+    //     lastName,
+    //     email
+    //   })
     // })
 
-    await fetch("/api/create", {
-      method: "POST", 
-      body: JSON.stringify({
-        firstName,
-        lastName,
-        email
-      })
-    })
+
     alert("submitted");
   }
 

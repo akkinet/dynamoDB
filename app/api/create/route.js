@@ -5,9 +5,7 @@ import { NextResponse } from 'next/server'
 export const POST = async (req) => {
     try {
         const { firstName, lastName, email } = await req.json();
-        const dbClient = new DynamoDBClient({
-            region: 'ap-south-1',
-        })
+        const dbClient = new DynamoDBClient()
         const command = new PutItemCommand({
             TableName: 'User',
             Item: {

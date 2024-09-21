@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server'
 
 
 export const GET = async (req) => {
-    const dbClient = new DynamoDBClient({ region: "ap-south-1" });
+    const dbClient = new DynamoDBClient();
     const command = new ScanCommand({
         TableName: 'User'
     });
